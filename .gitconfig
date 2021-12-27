@@ -1,0 +1,7 @@
+[user]
+	name = HarrisonWilde
+	email = harrisondwilde@outlook.com
+[core]
+        editor = vim
+[init]
+	defaultBranch = main

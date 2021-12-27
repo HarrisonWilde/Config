@@ -1,0 +1,45 @@
+# Main Colors
+unrecognized_file: yellow
+recognized_file:   white
+executable_file:   magenta
+dir:               blue
+
+# Link
+dead_link: red
+link:      magenta
+
+# special files
+socket:    green
+blockdev:  green
+chardev:   green
+
+# Access Modes
+write:     green
+read:      yellow
+exec:      blue
+no_access: red
+
+# Age
+day_old:     yellow
+hour_old:    green
+no_modifier: white
+
+# File Size
+file_large:  white
+file_medium: white
+file_small:  white
+
+# Random
+report: white
+user:   white
+tree:   white
+empty:  white
+error:  red
+normal: white
+
+# Git
+addition:     green
+modification: yellow
+deletion:     red
+untracked:    blue
+unchanged:    white
