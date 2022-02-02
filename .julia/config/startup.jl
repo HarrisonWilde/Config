@@ -2,7 +2,6 @@ using OhMyREPL
 using Crayons
 import OhMyREPL: Passes.SyntaxHighlighter
 
-OhMyREPL.input_prompt!("julia >", :magenta)
 OhMyREPL.enable_pass!("RainbowBrackets", false)
 
 scheme = SyntaxHighlighter.ColorScheme()
@@ -18,8 +17,8 @@ SyntaxHighlighter.function_def!(scheme, Crayon(foreground = :blue))
 SyntaxHighlighter.text!(scheme, Crayon(foreground = :default))
 SyntaxHighlighter.error!(scheme, Crayon(foreground = :red))
 SyntaxHighlighter.argdef!(scheme, Crayon(foreground = :blue, italics = true))
-SyntaxHighlighter.number!(scheme, Crayon(foreground = :cyan))
+SyntaxHighlighter.number!(scheme, Crayon(foreground = :red))
 
-SyntaxHighlighter.add!("DA UI", scheme)
-colorscheme!("DA UI")
+SyntaxHighlighter.add!("Terminal", scheme)
+colorscheme!("Terminal")
 
