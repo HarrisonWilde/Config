@@ -1,3 +1,5 @@
+# import Pkg; Pkg.add("OhMyREPL"); Pkg.add("Crayons")
+
 using OhMyREPL
 using Crayons
 import OhMyREPL: Passes.SyntaxHighlighter

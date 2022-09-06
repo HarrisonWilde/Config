@@ -1,4 +1,4 @@
-printf '\n%.0s' {1..100}
+printf '\n%.0s' {1..200}
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -7,20 +7,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/harrisonwilde/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/harrisonwilde/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/harrisonwilde/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/harrisonwilde/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 alias r="radian"
 alias zshedit="codium ~/.zshrc"
@@ -144,3 +130,19 @@ source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/harrisonwilde/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/harrisonwilde/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/harrisonwilde/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/harrisonwilde/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
