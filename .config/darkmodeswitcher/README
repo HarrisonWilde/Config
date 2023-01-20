@@ -1,0 +1,7 @@
+Use EventScripts with an AppleScript containing:
+
+do shell script "/Users/harrisonwilde/miniforge3/bin/python /Users/harrisonwilde/.config/darkmodeswitcher/switch_mode.py >> /Users/harrisonwilde/.config/darkmodeswitcher/out.log"
+
+Make it run whenever either of the following two events occur
+    1. Screen password unlocked
+    2. EventScripts launched (otherwise won't work on boot)
