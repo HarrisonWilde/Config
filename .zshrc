@@ -1,5 +1,10 @@
 printf '\n%.0s' {1..200}
 
+alias python="python3"
+alias pip="pip3"
+alias r="radian"
+alias zshedit="code ~/.zshrc"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -7,25 +12,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/harrisonwilde/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/harrisonwilde/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/harrisonwilde/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/harrisonwilde/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 eval "$(rbenv init - zsh)"
-
-alias r="radian"
-alias zshedit="codium ~/.zshrc"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -136,7 +123,6 @@ alias ls='colorls'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -146,3 +132,51 @@ source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+
+
+
+# usage
+# $ mkvenv myvirtualenv # creates venv under ~/.venv/
+# $ venv myvirtualenv   # activates venv
+# $ deactivate          # deactivates venv
+# $ rmvenv myvirtualenv # removes venv
+
+export VENV_HOME="$HOME/.venv"
+[[ -d $VENV_HOME ]] || mkdir $VENV_HOME
+
+lsvenv() {
+  ls -1 $VENV_HOME
+}
+
+venv() {
+  if [ $# -eq 0 ]
+    then
+      echo "Please provide venv name"
+    else
+      source "$VENV_HOME/$1/bin/activate"
+  fi
+}
+
+mkvenv() {
+  if [ $# -eq 0 ]
+    then
+      echo "Please provide venv name"
+  elif [ $# -eq 1 ]
+    then
+      python3 -m venv $VENV_HOME/$1
+  elif [ $# -eq 2 ]
+    then
+      python$2 -m venv $VENV_HOME/$1
+  fi      
+}
+
+rmvenv() {
+  if [ $# -eq 0 ]
+    then
+      echo "Please provide venv name"
+    else
+      rm -r $VENV_HOME/$1
+  fi
+}
+
+compdef '_path_files -/ -W $VENV_HOME' venv
