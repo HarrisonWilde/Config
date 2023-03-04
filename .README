@@ -1,4 +1,4 @@
-Need to recover the `lib/python3.8/site-packages/pygments/styles` file from the `miniconda3` dir and transfer across to get custom styles for the Radian r console.
+Need to get /opt/homebrew/lib/python3.11/site-packages/pygments/styles/__init__.py and /opt/homebrew/lib/python3.11/site-packages/pygments/styles/github.py to get custom styles for the Radian r console.
 
 Use `.transferdotfiles` and the following instructions to transfer to new computer
 1. Create alias to ensure that the git bare repository works without problem.
